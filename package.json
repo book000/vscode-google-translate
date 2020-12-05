@@ -3,7 +3,7 @@
     "displayName": "Vscode Google Translate",
     "description": "Translate text right in your code",
     "publisher": "funkyremi",
-    "version": "1.4.9",
+    "version": "1.4.9-gas-patch-0.1",
     "license": "MIT",
     "icon": "icon.png",
     "repository": {
@@ -178,6 +178,10 @@
                 "vscodeGoogleTranslate.proxyPassword": {
                     "type": "string",
                     "description": "The proxy password (Optional)"
+                },
+                "vscodeGoogleTranslate.gasUrl": {
+                    "type": "string",
+                    "description": "Google App Script Web Application URL"
                 }
             }
         },

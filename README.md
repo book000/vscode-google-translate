@@ -7,6 +7,17 @@ Quickly translate text right in your code 🚀
 
 ![Demo](demo.gif)
 
+## Patch plan (Edit by Tomachi)
+
+- Google App Script(GAS)を使用して変換するようにしたかった。
+  - I wanted to use Google App Script (GAS) to convert it.
+- ユーザーの責任下でdoPostを受けて`LanguageApp.translate`を使って翻訳し、返却するのが妥当だと思った。
+  - It seemed reasonable to take the doPost under the user's responsibility to translate and return it using `LanguageApp.translate`.
+- 2, 3時間いじったけどうまくいかなかった (初めてVisual Studio Codeのextensionをいじったからというのもある…)
+  - Tinkered with it for a couple of hours, but it didn't work (partly because it was the first time I tinkered with extensions in Visual Studio Code...)
+- `npm i`するとコンフリクトエラーが出る。
+  - `npm i` gives a conflict error.
+
 ## Usage
 
 ### Translate selected text

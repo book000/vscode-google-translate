@@ -2,9 +2,9 @@ import { TextDocumentPositionParams, Hover, TextDocuments, Connection, TextDocum
 import * as humanizeString from 'humanize-string';
 import { CommentParse, ICommentOption, ICommentBlock } from "./syntax/CommentParse";
 import { TextMateService } from "./syntax/TextMateService";
-import translate from "google-translate-open-api";
+//import translate from "google-translate-open-api";
+import translate from "./translate"
 import * as languages from "../../languages"
-
 
 export interface ICommentTranslateSettings {
     multiLineMerge: boolean;
@@ -29,14 +29,17 @@ export class Comment {
             newSetting.preferredLanguage = this._setting.preferredLanguage;
         }
         this._setting = Object.assign(this._setting, newSetting);
-        this._setting.preferredLanguage = languages.find(element => element.name === this._setting.preferredLanguage).value
-
+        console.log(languages);
+        this._setting.preferredLanguage = languages.find((element: { name: string, value: string }) => element.name === this._setting.preferredLanguage).name;
     }
 
     async translate(text: string) {
         const translationConfiguration = {
             to: this._setting.preferredLanguage,
         };
+        
+        console.log(`text: ${text}`);
+        console.log(`translationConfiguration: ${translationConfiguration}`);
         return await translate(text, translationConfiguration).then(res => {
             if (!!res && !!res.data) {
                   return res.data[0];
